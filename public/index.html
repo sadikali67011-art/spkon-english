@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="Practice English speaking with friendly people and a patient AI tutor.">
+    <title>SpeakUp — English, one conversation at a time</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" data-page="home" aria-label="SpeakUp home">
+          <span class="brand-mark">s<span>u</span></span>
+          <span class="brand-name">speak<span>up</span><small>ENGLISH PRACTICE</small></span>
+        </a>
+        <div class="sidebar-label">YOUR SPACE</div>
+        <nav class="nav-list">
+          <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</button>
+          <button class="nav-item" data-page="partners"><span class="nav-icon">♧</span>Find a partner</button>
+          <button class="nav-item" data-page="rooms"><span class="nav-icon">◎</span>Group rooms</button>
+          <button class="nav-item" data-page="tutor"><span class="nav-icon">✳</span>AI tutor <span class="nav-tag">NEW</span></button>
+          <button class="nav-item" data-page="progress"><span class="nav-icon">↗</span>My progress</button>
+          <button class="nav-item" data-page="vocabulary"><span class="nav-icon">▤</span>My vocabulary</button>
+          <button class="nav-item" data-page="profile"><span class="nav-icon">○</span>Profile</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="daily-card">
+            <span class="tiny-spark">✳</span>
+            <p class="daily-eyebrow">A LITTLE EVERY DAY</p>
+            <p class="daily-title">Your voice<br>gets stronger here.</p>
+            <p class="daily-copy">Five minutes of practice is a great start.</p>
+            <button class="text-link" data-page="tutor">Start speaking <span>→</span></button>
+          </div>
+          <button class="profile-shortcut" data-page="profile">
+            <span class="avatar avatar-small" id="sidebar-avatar">S</span>
+            <span class="profile-shortcut-copy"><strong id="sidebar-name">Your profile</strong><small id="sidebar-level">Set up your level</small></span>
+            <span class="more">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark">s<span>u</span></span> speak<span>up</span></div>
+          <span class="topbar-note"><span class="online-dot"></span> A good day to practice</span>
+          <div class="topbar-actions">
+            <button class="icon-button" id="language-toggle" aria-label="Toggle Hindi hints" title="Toggle Hindi hints">अ</button>
+            <button class="button button-primary top-cta" data-page="tutor">Start a practice <span>↗</span></button>
+            <button class="button button-quiet" id="auth-button">Log in</button>
+          </div>
+        </header>
+        <div class="page-content" id="page-content" aria-live="polite"></div>
+        <footer class="footer"><span>Small steps. Real conversations. <span class="footer-heart">♥</span></span><span>Made for your next “hello”.</span></footer>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <aside id="call-notice" class="call-notice" aria-label="Voice call controls" aria-live="polite" hidden></aside>
+    <audio id="remote-audio" autoplay playsinline></audio>
+    <dialog id="auth-dialog" class="dialog auth-dialog">
+      <form method="dialog" class="dialog-close"><button aria-label="Close dialog">×</button></form>
+      <div class="dialog-eyebrow">YOUR NEXT CONVERSATION STARTS HERE</div>
+      <h2 id="auth-title">Welcome to SpeakUp</h2>
+      <p id="auth-subtitle" class="dialog-intro">Create a free account and find your speaking rhythm.</p>
+      <div class="auth-tabs"><button id="register-tab" class="auth-tab selected">Create account</button><button id="login-tab" class="auth-tab">Log in</button></div>
+      <form id="auth-form" class="form-stack">
+        <label id="name-field">Your name<input name="name" autocomplete="name" minlength="2" maxlength="40" required placeholder="e.g. Aanya"></label>
+        <label>Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+        <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required placeholder="At least 8 characters"></label>
+        <label id="level-field">Your English level<select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+        <button class="button button-primary button-full" id="auth-submit">Create my account <span>→</span></button>
+        <p class="form-error" id="auth-error" role="alert"></p>
+      </form>
+      <p class="privacy-note">Your email is private and is never shown to other learners.</p>
+    </dialog>
+  </body>
+</html>
